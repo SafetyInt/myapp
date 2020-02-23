@@ -1,7 +1,8 @@
+# 本工程的配置文件 springboot 默认加载该名称的文件
 spring:
-  profiles:
-    active:
-    - dev
+ profiles:
+  active:
+   - dev
 
 ---
 server:

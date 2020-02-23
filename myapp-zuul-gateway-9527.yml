@@ -1,7 +1,7 @@
 spring:
   profiles:
     active:
-      - dev
+    - dev
 
 ---
 server:
@@ -32,6 +32,7 @@ zuul:
  routes:					# 例如：http://sqq:9527/effect-dept/dept/get (之前)
   translate.service-id: myapp-translate		# 对该服务访问路径映射
   translate.path: /translate/**	    # 路由映射之后的地址前缀 http://sqq:9527/mydept/dept/get（之后）
+
 ---
 server:
   port: 9527

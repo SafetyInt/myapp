@@ -8,9 +8,8 @@ server:
 
 spring:
  profiles: dev
- application:
-  name: myapp-eureka-client   # eureka 服务端的实例名称
-
+# application:
+#   name: myapp-eureka-client   # eureka 服务端的实例名称
 eureka:
  instance:
   hostname: eureka7001.sq.com 
@@ -25,8 +24,6 @@ server:
 
 spring:
  profiles: prod
- application:
-  name: myapp-eureka-client 	# eureka 服务端的实例名称
 
 eureka:
  instance:

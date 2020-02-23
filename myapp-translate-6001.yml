@@ -1,0 +1,49 @@
+spring:
+ profiles:
+  active:
+   - dev
+---
+server:
+  port: 6001
+
+spring:
+  profiles: dev
+  application:
+    name: myapp-translate	# 在服务注册中心的 服务名称
+
+eureka:
+  instance:
+    instance-id: myapp-translate-6001
+    prefer-ip-address: true
+  client:
+    service-url:
+      defaultZone: http://eureka7003.com:7003/eureka/,http://eureka7002.com:7002/eureka/,http://eureka7001.com:7001/eureka/
+
+info:
+  app.name: myapp-translate-6001
+  company.name: www.sq.com
+  build.artifactId: $project.artifactId$
+  build.version: $project.version$
+
+---
+server:
+  port: 6001
+
+spring:
+  profiles: prod
+  application:
+    name: myapp-translate	# 在服务注册中心的 服务名称
+
+eureka:
+  instance:
+    instance-id: myapp-translate-6001
+    prefer-ip-address: true
+  client:
+    service-url:
+      defaultZone: http://eureka7003.com:7003/eureka/,http://eureka7002.com:7002/eureka/,http://eureka7001.com:7001/eureka/
+
+info:
+  app.name: myapp-translate-6001
+  company.name: www.sq.com
+  build.artifactId: $project.artifactId$
+  build.version: $project.version$

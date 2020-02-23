@@ -5,13 +5,13 @@ spring:
 
 ---
 server:
-  port: 9527
+  port: 80
 
 spring:
   profiles: dev
   application:
     name: myapp-zuul-gateway			# 服务名称
-
+  
 eureka:
   instance:
     instance-id: myapp-zuul-gateway-9527
@@ -31,39 +31,28 @@ zuul:
 # ignored-services: 				# 使用路由网关后，可通过访问服务名，再访问处理路径名
   routes:					# 例如：http://sqq:9527/effect-dept/dept/get (之前)
     translate:
+      path: /translate/**	    # 路由映射之后的地址前缀 http://sqq:9527/mydept/dept/get（之后）     
       service-id: myapp-translate		# [别名]对该服务访问路径映射
-      path: /translate/**	    # 路由映射之后的地址前缀 http://sqq:9527/mydept/dept/get（之后）
+     
 
----
-server:
-  port: 9527
+# zuul动态网关-开启监控中心所有端口
+management:  
+  endpoints:
+    web:  
+      exposure: 
+        include: "*"
 
-spring:
-  profiles: prod
-  application:
-    name: myapp-zuul-gateway			# 服务名称
 
-eureka:
-  instance:
-    instance-id: myapp-zuul-gateway-9527
-    prefer-ip-address: true
-  client:
-    service-url:
-      defaultZone: http://eureka7003.com:7003/eureka/,http://eureka7002.com:7002/eureka/,http://eureka7001.com:7001/eureka/
 
-info:
-  app.name: myapp-zuul-gateway-9527
-  company.name: www.sq.com
-  build.artifactId: $project.artifactId$                              # 配置在 父项目effect pom
-  build.version: $project.version$
 
-zuul:
-  prefix: /sq
-  ignored-services: myapp-translate		# 使用路由网关后，可通过访问服务名，再访问处理路径名
-  routes:					# 例如：http://sqq:9527/effect-dept/dept/get (之前)
-    translate:
-      service-id: myapp-translate		# 对该服务访问路径映射
-      path: /translate/**	    # 路由映射之后的地址前缀 http://sqq:9527/mydept/dept/get（之后）
+
+
+
+
+
+
+
+
 
 
 

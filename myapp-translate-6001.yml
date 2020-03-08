@@ -27,7 +27,7 @@ info:
 
 # 接受 hystrix dashboard 管理【性能监控】
 management:
-  webpoints:
+  endpoints:
     web:
       exposure:
         include: hystrix.stream
@@ -57,7 +57,7 @@ info:
 
 # 接受 hystrix dashboard 管理【性能监控】
 management:
-  webpoints:
+  endpoints:
     web:
       exposure:
         include: hystrix.stream

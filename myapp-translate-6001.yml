@@ -25,6 +25,12 @@ info:
   build.artifactId: $project.artifactId$
   build.version: $project.version$
 
+# 接受 hystrix dashboard 管理【性能监控】
+management:
+  webpoints:
+    web:
+      exposure:
+        include: hystrix.stream
 ---
 server:
   port: 6001
@@ -42,8 +48,18 @@ eureka:
     service-url:
       defaultZone: http://eureka7003.com:7003/eureka/,http://eureka7002.com:7002/eureka/,http://eureka7001.com:7001/eureka/
 
+# actuator 信息
 info:
   app.name: myapp-translate-6001
   company.name: www.sq.com
   build.artifactId: $project.artifactId$
   build.version: $project.version$
+
+# 接受 hystrix dashboard 管理【性能监控】
+management:
+  webpoints:
+    web:
+      exposure:
+        include: hystrix.stream
+
+
